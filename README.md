@@ -14,7 +14,10 @@ Configuration Flow :
     -  Create new Azure DNS Zone based on domain name from GoDaddy
        - Create new A Record that maps to the External IP of Ingress controller
        - Create new CAA record that maps to letsencrypt.org
-3. Edit and place the Azure Name Server to GoDaddy
+    -  Configure Cert-Manager using Azure DNS 
+       -  Create a Service Principal "AZCertManager-SPN" and assign "DNS Zone Contributor" role ,to give access to DNS Zone
+       -  Create a Kubernetes secret "azuredns-config" this will be use in ClusterIssuer.yaml file
+3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
 4. Deploy the kubernetes files in sequence:
    - Web and SQl Linux into Kubernetes .yaml file
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
