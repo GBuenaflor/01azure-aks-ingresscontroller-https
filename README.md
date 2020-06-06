@@ -82,11 +82,11 @@ az network dns zone show \
 
 4. Deploy the kubernetes files in sequence:
 
-   - Web and SQl Linux .yaml file
+   - Web and SQL Linux .yaml file, here i created simple asp.net core docker image deployed in dockerhub, sqllinux from docker hub
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
        - Certificate Based on Azure DNS Zone (aks01-web.domain.net)
        - Certificate based on Kubernetes host (.nip.io) 
-   - Ingress Controller .yaml file
+   - Ingress Controller .yaml file - use http01 and DNS01 challenge
    
 5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
 
@@ -105,4 +105,4 @@ View the two Certificates
 
 6. In addition, connect SSMS to manage SQL Linux.
 
-Note: My Favorite > Microsoft Technologies.
+Note: My Favorite > Microsoft Technologies. It's complex, We know that but I make it work. Skol!
