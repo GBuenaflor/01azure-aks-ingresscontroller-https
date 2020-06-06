@@ -36,10 +36,8 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
     
 ----------------------------------------------------------
-    -  Create new Azure DNS Zone based on domain name from GoDaddy
-    
-       - Create new A Record that maps to the External IP of Ingress controller
-       
+    -  Create new A Record that maps to the External IP of Ingress controller
+           
 az network dns zone create \
   --resource-group Dev01-aks01-RG \
   --name aks01-web.domain.net
@@ -49,23 +47,15 @@ az network dns record-set a add-record \
     --zone-name aks01-web.domain.net \
     --record-set-name '*' \
     --ipv4-address [External IP of Ingress Cotroller]
-              
-       
-- Query The DNS ZOne , and put this details to GoDaddy Name Server
+                     
+    - Query The DNS Zone , and put this details to GoDaddy Name Server
 
 az network dns zone show \
   --resource-group Dev01-aks01-RG \
   --name aks01-web.domain.net \
   --query nameServers
-
-[
-  "ns1-06.azure-dns.com.",
-  "ns2-06.azure-dns.net.",
-  "ns3-06.azure-dns.org.",
-  "ns4-06.azure-dns.info."
-]
-
-       - Create new CAA record that maps to letsencrypt.org
+ 
+    - Create new CAA record that maps to letsencrypt.org
        
 $zoneName="aks01-web.domain.net"
 $resourcegroup="Dev01-aks01-RG"
