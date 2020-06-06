@@ -1,0 +1,45 @@
+#-----------------------------------------------------------------
+# Ingress for web01 with tls
+#
+# - Get the current Ingress
+#   kubectl get service nginx-ingress-controller --namespace ingress -w
+#
+# NAME                       TYPE           CLUSTER-IP     EXTERNAL-IP    PORT(S)                      AGE
+# nginx-ingress-controller   LoadBalancer   10.0.173.156   52.190.38.84   80:32208/TCP,443:32560/TCP   3m37s
+#
+#----------------------------------------------------------------- 
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: aks01-web
+  annotations:        
+    kubernetes.io/ingress.class: nginx    
+    cert-manager.io/cluster-issuer: letsencrypt
+    cert-manager.io/acme-challenge-type: http01
+    cert-manager.io/acme-challenge-type: dns01     
+spec:
+  tls:
+    - hosts:
+      - aks01-web.52-190-38-84.nip.io
+      secretName: aks01-web-cert
+    - hosts:
+      - gb.aks01-web.domain.net
+      secretName: aks01-web-cert02   
+  rules:  
+  - host: aks01-web.52-190-38-84.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: aks01-web
+          servicePort: 80
+        path: /
+  - host: gb.aks01-web.domain.net
+    http:
+      paths:
+      - backend:
+          serviceName: aks01-web
+          servicePort: 80
+        path: /
+        
+        
+ 
