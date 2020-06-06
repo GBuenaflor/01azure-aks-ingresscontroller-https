@@ -67,8 +67,8 @@ $addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName
 ----------------------------------------------------------
     -  Configure Cert-Manager using Azure DNS     
     
-       -  Create a Service Principal "AZCertManager-SPN" and assign "DNS Zone Contributor" role ,to give access to DNS Zone
-       -  Create a Kubernetes secret "azuredns-config" this will be use in ClusterIssuer.yaml file
+       -  Create a Service Principal "AZCertManager-SPN" and assign "DNS Zone Contributor" role to give access to DNS Zone
+       -  Create a Kubernetes secret "azuredns-config" use in ClusterIssuer.yaml file
        
 ----------------------------------------------------------
 
@@ -98,4 +98,4 @@ View the two Certificates
 
 6. In addition, connect SSMS to manage SQL Linux.
 
-Note: My Favorite > Microsoft Technologies , Next AKS with Application Gateway Ingress Controller, Stay Tuned!..
+Note: My Favorite > Microsoft Technologies.
