@@ -9,7 +9,7 @@ High Level Architecture Diagram:
 Configuration Flow :
 
 1. Create AKS Cluster (with Advance Networking using Azure Terraform)
-2. Install the kubernetes components
+2. Install the Cert-Manger,Ingress Controller,Configure AZ DNS Zone
     -  Cert-Manager and Ingress Controller
     -  Create new Azure DNS Zone based on domain name from GoDaddy
        - Create new A Record that maps to the External IP of Ingress controller
