@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------
-# Certificate for web01 
+# Certificate  
 #-----------------------------------------------------------------  
 apiVersion: cert-manager.io/v1alpha2 
 kind: Certificate
@@ -12,7 +12,7 @@ spec:
  #renewBefore: 12h
  #keyEncoding: pkcs8
   dnsNames:
-  - gb.aks01-web.iomdev.net
+  - gb.aks01-web.domain.net
   issuerRef:
     name: letsencrypt
     kind: ClusterIssuer
