@@ -47,14 +47,7 @@ az network dns record-set a add-record \
     --zone-name aks01-web.domain.net \
     --record-set-name '*' \
     --ipv4-address [External IP of Ingress Cotroller]
-                     
-    - Query The DNS Zone , and put this details to GoDaddy Name Server
-
-az network dns zone show \
-  --resource-group Dev01-aks01-RG \
-  --name aks01-web.domain.net \
-  --query nameServers
- 
+                       
     - Create new CAA record that maps to letsencrypt.org , use PowerShell To run this script
        
  $zoneName="aks01-web.domain.net"
@@ -74,7 +67,14 @@ az network dns zone show \
 
 3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
 
+az network dns zone show \
+  --resource-group Dev01-aks01-RG \
+  --name aks01-web.domain.net \
+  --query nameServers
+
+
 4. Deploy the kubernetes files in sequence:
+
    - Web and SQl Linux .yaml file
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
        - Certificate Based on Azure DNS Zone (aks01-web.domain.net)
