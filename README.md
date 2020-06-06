@@ -49,13 +49,20 @@ az network dns record-set a add-record \
     --ipv4-address [External IP of Ingress Cotroller]
                        
     - Create new CAA record that maps to letsencrypt.org , use PowerShell To run this script
-       
- $zoneName="aks01-web.domain.net"
- $resourcegroup="Dev01-aks01-RG"
- $addcaarecord= @()
- $addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "letsencrypt.org"
- $addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "iodef" -CaaValue "mailto:<your email address>"
- $addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName -ResourceGroupName $resourcegroup -Ttl 3600 -DnsRecords ($addcaarecord)
+    
+$zoneName="aks01-web.iomdev.net"
+
+$resourcegroup="Dev01-aks01-RG"
+
+$addcaarecord= @()
+
+$addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "letsencrypt.org"
+
+$addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "iodef" -CaaValue "mailto:gbuenaflor@iom.int"
+
+$addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName -ResourceGroupName $resourcegroup -Ttl 3600 -DnsRecords ($addcaarecord)
+
+
 
 ----------------------------------------------------------
     -  Configure Cert-Manager using Azure DNS     
