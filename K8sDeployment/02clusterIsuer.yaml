@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------
-# Cluster Issuer for web01 
+# Cluster Issuer using http01 and DNS01
 #-----------------------------------------------------------------
 apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
