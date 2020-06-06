@@ -22,6 +22,14 @@ Configuration Flow :
        - Certificate based on  .nip.io 
    - Ingress Controller .yaml file
 5. Verifiy the https URL, the certificate is valid from Let's Encrypt
+
+
+![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https02.png)
+
+
+![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https03.png)
+
+
 6. Bunos, To manage SQL Linux, connect using SSMS.
 
 Note: My Favorite > Microsoft Technologies
