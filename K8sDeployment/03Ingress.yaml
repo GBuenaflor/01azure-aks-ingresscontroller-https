@@ -1,5 +1,5 @@
 #-----------------------------------------------------------------
-# Ingress for web01 with tls
+# Ingress with tls
 #
 # - Get the current Ingress
 #   kubectl get service nginx-ingress-controller --namespace ingress -w
