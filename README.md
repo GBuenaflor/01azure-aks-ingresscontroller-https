@@ -23,10 +23,16 @@ Configuration Flow :
    - Ingress Controller .yaml file
 5. Verifiy the https URL, the certificate is valid from Let's Encrypt
 
+
 View the two URL's
+
+
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https02.png)
 
+
 View the Certificates
+
+
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https03.png)
 
 
