@@ -6,7 +6,7 @@ High Level Architecture Diagram:
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https.png)
 
 
-# Configuration Flow :
+Configuration Flow :
 
 1. Create AKS Cluster (with Advance Networking using Azure Terraform
 2. Install the kubernetes components
@@ -23,3 +23,5 @@ High Level Architecture Diagram:
    - Ingress Controller .yaml file
 5. Verifiy the https URL, the certificate is valid from Let's Encrypt
 6. Bunos, To manage SQL Linux, connect using SSMS.
+
+Note: My Favorite > Microsoft Technologies
