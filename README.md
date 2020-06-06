@@ -8,20 +8,20 @@ High Level Architecture Diagram:
 
 Configuration Flow :
 
-1. Create AKS Cluster (with Advance Networking using Azure Terraform
+1. Create AKS Cluster (with Advance Networking using Azure Terraform)
 2. Install the kubernetes components
     -  Cert-Manager and Ingress Controller
-   Create new Azure DNS Zone based on domain name from GoDaddy
-    - Create new A Record that maps to the External IP of Ingress controller
-    - Create new CAA record that maps to letsencrypt.org
-3. Place the Name server of Azure DNS to GoDaddy
+    -  Create new Azure DNS Zone based on domain name from GoDaddy
+       - Create new A Record that maps to the External IP of Ingress controller
+       - Create new CAA record that maps to letsencrypt.org
+3. Edit and place the Azure Name Server to GoDaddy
 4. Deploy the kubernetes files in sequence:
    - Web and SQl Linux into Kubernetes .yaml file
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
        - Certificate Based on Azure DNS Zone
        - Certificate based on  .nip.io 
    - Ingress Controller .yaml file
-5. Verifiy the https URL, the certificate is valid from Let's Encrypt
+5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
 
 
 View the two URL's
@@ -30,7 +30,7 @@ View the two URL's
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https02.png)
 
 
-View the Certificates
+View the two Certificates
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https03.png)
@@ -38,4 +38,4 @@ View the Certificates
 
 6. Bunos, To manage SQL Linux, connect using SSMS.
 
-Note: My Favorite > Microsoft Technologies
+Note: My Favorite > Microsoft Technologies , Next AKS with Application Gateway Ingress Controller, Stay Tuned!..
