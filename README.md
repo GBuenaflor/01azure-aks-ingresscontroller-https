@@ -75,10 +75,10 @@ az network dns zone show \
 3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
 
 4. Deploy the kubernetes files in sequence:
-   - Web and SQl Linux into Kubernetes .yaml file
+   - Web and SQl Linux .yaml file
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
-       - Certificate Based on Azure DNS Zone
-       - Certificate based on  .nip.io 
+       - Certificate Based on Azure DNS Zone (aks01-web.domain.net)
+       - Certificate based on Kubernetes host (.nip.io) 
    - Ingress Controller .yaml file
    
 5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
