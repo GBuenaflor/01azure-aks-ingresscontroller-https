@@ -105,4 +105,4 @@ View the two Certificates
 
 6. In addition, connect SSMS to manage SQL Linux.
 
-Note: My Favorite > Microsoft Technologies. It's complex, We know that but I make it work. Skol!
+Note: My Favorite > Microsoft Technologies.
