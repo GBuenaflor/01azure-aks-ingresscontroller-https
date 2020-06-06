@@ -39,14 +39,47 @@ helm install nginx-ingress stable/nginx-ingress \
     -  Create new Azure DNS Zone based on domain name from GoDaddy
     
        - Create new A Record that maps to the External IP of Ingress controller
+       
+az network dns zone create \
+  --resource-group Dev01-aks01-RG \
+  --name aks01-web.domain.net
+ 
+az network dns record-set a add-record \
+    --resource-group Dev01-aks01-RG \
+    --zone-name aks01-web.domain.net \
+    --record-set-name '*' \
+    --ipv4-address [External IP of Ingress Cotroller]
+              
+       
+- Query The DNS ZOne , and put this details to GoDaddy Name Server
+
+az network dns zone show \
+  --resource-group Dev01-aks01-RG \
+  --name aks01-web.domain.net \
+  --query nameServers
+
+[
+  "ns1-06.azure-dns.com.",
+  "ns2-06.azure-dns.net.",
+  "ns3-06.azure-dns.org.",
+  "ns4-06.azure-dns.info."
+]
+
        - Create new CAA record that maps to letsencrypt.org
        
+$zoneName="aks01-web.domain.net"
+$resourcegroup="Dev01-aks01-RG"
+$addcaarecord= @()
+$addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "issue" -CaaValue "letsencrypt.org"
+$addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "iodef" -CaaValue "mailto:<your email address>"
+$addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName -ResourceGroupName $resourcegroup -Ttl 3600 -DnsRecords ($addcaarecord)
+
 ----------------------------------------------------------
-    -  Configure Cert-Manager using Azure DNS 
+    -  Configure Cert-Manager using Azure DNS     
     
        -  Create a Service Principal "AZCertManager-SPN" and assign "DNS Zone Contributor" role ,to give access to DNS Zone
        -  Create a Kubernetes secret "azuredns-config" this will be use in ClusterIssuer.yaml file
-
+       
 ----------------------------------------------------------
 
 3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
