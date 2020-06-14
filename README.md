@@ -39,7 +39,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
     
 ----------------------------------------------------------
-# 2.3 Create new A Record that maps to the External IP of Ingress controller
+# 2.3 Create new "A" Record that maps to the External IP of Ingress controller
            
 az network dns zone create \
   --resource-group Dev01-aks01-RG \
@@ -53,7 +53,7 @@ az network dns record-set a add-record \
 
 
 ----------------------------------------------------------
-# 2.4 Create new CAA record that maps to letsencrypt.org 
+# 2.4 Create new "CAA" record that maps to letsencrypt.org 
 
 
 $zoneName="aks01-web.domain.net"
