@@ -79,8 +79,12 @@ az network dns zone show \
   --name aks01-web.domain.net \
   --query nameServers
 
+4. Configure Cert-Manager using Azure DNS , this will be use in ClusterIsuer yaml file
 
-4. Deploy the kubernetes files in sequence:
+https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
+
+
+5. Deploy the kubernetes files in sequence:
 
    - Web and SQL Linux .yaml file, here i created simple asp.net core docker image deployed in dockerhub, sqllinux from docker hub
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
