@@ -48,40 +48,7 @@ variable key {
 variable container_name {
     default = "dev01strcontainer01"
 }
-  
-#----------------------------------------------------
-# Azure Vnet Variables
-#----------------------------------------------------
-variable "virtual_network_address_prefix" { 
-  default     = "15.0.0.0/8"
-}
-
-variable "aks_subnet_name" { 
-  default     = "az-subnet"
-}
- 
-variable "aks_subnet_address_prefix" { 
-  default     = "15.0.0.0/16"
-}
-
-variable "app_gateway_subnet_address_prefix" { 
-  default     = "15.1.0.0/16"
-}
-
-#----------------------------------------------------
-# Azure Application Gateway Variables
-#----------------------------------------------------
-
-variable "app_gateway_sku" {
-  description = "Name of the Application Gateway SKU."
-  default     = "Standard_v2"
-}
-
-variable "app_gateway_tier" {
-  description = "Tier of the Application Gateway SKU."
-  default     = "Standard_v2"
-} 
- 
+    
 #----------------------------------------------------
 # Azure AKS Variables
 #----------------------------------------------------
