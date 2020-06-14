@@ -105,13 +105,13 @@ az network dns zone show \
 # 5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
 
 
-# View the two URL's
+# View the two URL's :
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https02.png)
 
 
-# View the two Certificates
+# View the two Certificates :
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https03.png)
