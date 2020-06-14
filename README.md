@@ -1,12 +1,16 @@
 ----------------------------------------------------------
 # Azure Kubernetes Services (AKS) - NGINX Ingress Controller configured with Lets Encrypt Certificate and Azure DNS Zone
 
-High Level Architecture Diagram:
+
+# High Level Architecture Diagram:
+
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https.png)
 
 
-Configuration Flow :
+
+# Configuration Flow :
+
 
 ----------------------------------------------------------
 # 1. Create AKS Cluster (with Advance Networking using Azure Terraform)
