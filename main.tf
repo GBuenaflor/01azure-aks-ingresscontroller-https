@@ -3,7 +3,7 @@
 #  
 # - Azure Kubernetes 
 #    - Advance Networking
-#
+# 
 # ----------------------------------------------------
 #  Initial Configuration
 # ----------------------------------------------------
@@ -50,20 +50,7 @@ resource "azurerm_resource_group" "resource_group" {
   name     = var.resource_group
   location = var.location
 }
- 
-#----------------------------------------------------
-# User Assigned Idntities
-#----------------------------------------------------
-resource "azurerm_user_assigned_identity" "az-user-identity01" {
-  name                = "az-user-identity01"
-  location            = azurerm_resource_group.resource_group.location
-  resource_group_name = azurerm_resource_group.resource_group.name
- 
-  tags = {
-    Environment = var.environment
-  }
-}
- 
+  
 #----------------------------------------------------
 # Virtual Networks
 #----------------------------------------------------
@@ -240,16 +227,3 @@ resource "azurerm_kubernetes_cluster" "az-k8s" {
   }
 }
 
-
-#----------------------------------------------------
-# Terraform BackEnd
-#----------------------------------------------------
-
-#terraform {
-#  backend "azurerm" {
-     # storage_account_name= "dev01straccnt01"  
-     # access_key= "1qxGagOl73iVmc/KBZJvKS1aHHG/MIDS6BHRd3OXi5PFav6fNBPv3h0xhEr1zvHsaLkMzHw/UcOxMf09yNnSsQ==" 
-     # key= "dev01.k8s.tfstate"              
-     # container_name= "dev01strcontainer01" 
-#	}
-#}
