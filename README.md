@@ -93,12 +93,24 @@ az network dns zone show \
 ----------------------------------------------------------
 # 4. Deploy the kubernetes files in sequence:
 
-
-   - Web and SQL Linux .yaml file, here i created simple asp.net core docker image deployed in dockerhub, sqllinux from docker hub
-   - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
-       - Certificate Based on Azure DNS Zone (aks01-web.domain.net)
-       - Certificate based on Kubernetes host (.nip.io) 
-   - Ingress Controller .yaml file - use http01 and DNS01 challenge
+   - 01webandsql.yaml 
+   
+        - here i created simple asp.net core docker image deployed in dockerhub, sqllinux from docker hub
+   
+   
+   - 02clusterIsuer.yaml 
+   
+        - This will get certificate from Let's Encrypt
+        - Certificate Based on Azure DNS Zone (aks01-web.domain.net)
+        - Certificate based on Kubernetes host (.nip.io) 
+      
+      
+   - 03Ingress.yaml 
+   
+        - use http01 and DNS01 challenge
+   
+   
+   - 04certificate.yaml   
   
   
 ----------------------------------------------------------
