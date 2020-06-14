@@ -71,10 +71,10 @@ $addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName
 
 
 ----------------------------------------------------------
-# 2.4 Configure Cert-Manager using Azure DNS     
-    
-       -  Create a Service Principal "AZCertManager-SPN" and assign "DNS Zone Contributor" role to give access to DNS Zone
-       -  Create a Kubernetes secret "azuredns-config" use in ClusterIssuer.yaml file
+# 2.5 Configure Cert-Manager using Azure DNS , this will be use in ClusterIsuer yaml file
+
+
+https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
        
        
 ----------------------------------------------------------
@@ -87,14 +87,7 @@ az network dns zone show \
   --query nameServers
 
 ----------------------------------------------------------
-# 4. Configure Cert-Manager using Azure DNS , this will be use in ClusterIsuer yaml file
-
-
-https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
-
-
-----------------------------------------------------------
-# 5. Deploy the kubernetes files in sequence:
+# 4. Deploy the kubernetes files in sequence:
 
 
    - Web and SQL Linux .yaml file, here i created simple asp.net core docker image deployed in dockerhub, sqllinux from docker hub
@@ -105,7 +98,7 @@ https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
   
   
 ----------------------------------------------------------
-# 5.1 Verifiy the application, both URL's utilize the Let's Encrypt Certificate
+# 5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
 
 
 # View the two URL's
