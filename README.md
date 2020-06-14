@@ -9,16 +9,13 @@ High Level Architecture Diagram:
 Configuration Flow :
 
 ----------------------------------------------------------
-
 # 1. Create AKS Cluster (with Advance Networking using Azure Terraform)
   
   - With AkS    
  
 ----------------------------------------------------------
-
 # 2. Install the Cert-Manger,Ingress Controller,Configure AZ DNS Zone
 
-----------------------------------------------------------
 # 2.1  Install the Cert-Manager
     
 kubectl create namespace cert-manager
@@ -53,9 +50,12 @@ az network dns record-set a add-record \
     --zone-name aks01-web.domain.net \
     --record-set-name '*' \
     --ipv4-address [External IP of Ingress Cotroller]
-                       
-    - Create new CAA record that maps to letsencrypt.org 
-    
+
+
+----------------------------------------------------------
+# 2.4 Create new CAA record that maps to letsencrypt.org 
+
+
 $zoneName="aks01-web.domain.net"
 
 $resourcegroup="Dev01-aks01-RG"
@@ -76,11 +76,10 @@ $addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName
        -  Create a Service Principal "AZCertManager-SPN" and assign "DNS Zone Contributor" role to give access to DNS Zone
        -  Create a Kubernetes secret "azuredns-config" use in ClusterIssuer.yaml file
        
+       
 ----------------------------------------------------------
-
 # 3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
 
-----------------------------------------------------------
 
 az network dns zone show \
   --resource-group Dev01-aks01-RG \
@@ -88,19 +87,15 @@ az network dns zone show \
   --query nameServers
 
 ----------------------------------------------------------
-
 # 4. Configure Cert-Manager using Azure DNS , this will be use in ClusterIsuer yaml file
 
-----------------------------------------------------------
 
 https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
 
 
 ----------------------------------------------------------
-
 # 5. Deploy the kubernetes files in sequence:
 
-----------------------------------------------------------
 
    - Web and SQL Linux .yaml file, here i created simple asp.net core docker image deployed in dockerhub, sqllinux from docker hub
    - Certificate Issuer .yaml file - This will get certificate from Let's Encrypt
@@ -108,11 +103,10 @@ https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
        - Certificate based on Kubernetes host (.nip.io) 
    - Ingress Controller .yaml file - use http01 and DNS01 challenge
   
+  
 ----------------------------------------------------------
-
 # 5.1 Verifiy the application, both URL's utilize the Let's Encrypt Certificate
 
-----------------------------------------------------------
 
 # View the two URL's
 
