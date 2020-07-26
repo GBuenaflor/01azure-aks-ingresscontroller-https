@@ -4,14 +4,14 @@
 
 
 
-# High Level Architecture Diagram:
+High Level Architecture Diagram:
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https.png)
 
 
 
-# Configuration Flow :
+Configuration Flow :
 
 
 ----------------------------------------------------------
