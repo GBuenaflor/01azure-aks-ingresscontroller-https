@@ -1,5 +1,7 @@
 ----------------------------------------------------------
-# Azure Kubernetes Services (AKS) - NGINX Ingress Controller configured with Lets Encrypt Certificate and Azure DNS Zone
+# Azure Kubernetes Services (AKS) - Part 02
+# NGINX Ingress Controller configured with Lets Encrypt Certificate and Azure DNS Zone
+
 
 
 # High Level Architecture Diagram:
