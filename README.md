@@ -131,6 +131,10 @@ az network dns zone show \
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https03.png)
 
 
-# 6. In addition, connect SSMS to manage SQL Linux.
+</br>
+Link to other Microsoft Azure projects
+https://github.com/GBuenaflor/01azure
+</br>
+
 
 Note: My Favorite > Microsoft Technologies.
