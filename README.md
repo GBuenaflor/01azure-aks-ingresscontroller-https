@@ -17,8 +17,12 @@ Configuration Flow :
 ----------------------------------------------------------
 # 1. Create AKS Cluster (with Advance Networking using Azure Terraform)
   
-  - With AkS    
- 
+```
+terrafrom init
+terrafrom plan
+terraform apply
+```
+
 ----------------------------------------------------------
 # 2. Install the Cert-Manger,Ingress Controller,Configure AZ DNS Zone
 
