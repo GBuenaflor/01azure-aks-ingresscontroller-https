@@ -87,7 +87,7 @@ metadata:
   name: mssql-deployment
   namespace: default
 spec:
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
