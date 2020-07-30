@@ -7,7 +7,7 @@
 High Level Architecture Diagram:
 
 
-![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https.png)
+![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https01.png)
 
 
 
@@ -123,13 +123,13 @@ az network dns zone show \
 ## View the two URL's :
 
 
-![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https02.png)
+![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https02.png)
 
 
 ## View the two Certificates :
 
 
-![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/GB-AKS-Ingress-Https03.png)
+![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https03.png)
 
 
 </br>
