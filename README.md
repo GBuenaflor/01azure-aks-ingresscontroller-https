@@ -4,18 +4,18 @@
 
 
 
-High Level Architecture Diagram:
+#### High Level Architecture Diagram:
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https01.png)
 
 
 
-Configuration Flow :
+#### Configuration Flow :
 
 
 ----------------------------------------------------------
-# 1. Create AKS Cluster (with Advance Networking using Azure Terraform)
+## 1. Create AKS Cluster (with Advance Networking using Azure Terraform)
   
 ```
 terrafrom init
@@ -24,9 +24,9 @@ terraform apply
 ```
 
 ----------------------------------------------------------
-# 2. Install the Cert-Manger,Ingress Controller,Configure AZ DNS Zone
+## 2. Install the Cert-Manger,Ingress Controller,Configure AZ DNS Zone
 
-## 2.1  Install the Cert-Manager
+### 2.1  Install the Cert-Manager
 
 ```
 kubectl create namespace cert-manager
@@ -39,7 +39,7 @@ helm install cert-manager \
     jetstack/cert-manager
 ``` 
 ----------------------------------------------------------
-## 2.2 Install Ingress Controller
+### 2.2 Install Ingress Controller
  
  ```
 kubectl create namespace ingress
@@ -52,7 +52,7 @@ helm install nginx-ingress stable/nginx-ingress \
  ```
  
 ----------------------------------------------------------
-## 2.3 Create new "A" Record that maps to the External IP of Ingress controller
+### 2.3 Create new "A" Record that maps to the External IP of Ingress controller
 
 ```
 az network dns zone create \
@@ -67,7 +67,7 @@ az network dns record-set a add-record \
 ```
 
 ----------------------------------------------------------
-## 2.4 Create new "CAA" record that maps to letsencrypt.org 
+### 2.4 Create new "CAA" record that maps to letsencrypt.org 
 
 ```
 $zoneName="aks01-web.domain.net"
@@ -78,14 +78,14 @@ $addcaarecord+=New-AzDnsRecordConfig -Caaflags 0 -CaaTag "iodef" -CaaValue "mail
 $addcaarecord = New-AzDnsRecordSet -Name "@" -RecordType CAA -ZoneName $zoneName -ResourceGroupName $resourcegroup -Ttl 3600 -DnsRecords ($addcaarecord)
 ```
 ----------------------------------------------------------
-## 2.5 Configure Cert-Manager using Azure DNS , this will be use in ClusterIsuer yaml file
+### 2.5 Configure Cert-Manager using Azure DNS , this will be use in ClusterIsuer yaml file
 
 
 https://cert-manager.io/docs/configuration/acme/dns01/azuredns/
        
        
 ----------------------------------------------------------
-# 3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
+## 3. Get Name Server details from Azure DNS Zone and replace Name Server from GoDaddy
 
 ```
 az network dns zone show \
@@ -94,7 +94,7 @@ az network dns zone show \
   --query nameServers
 ```
 ----------------------------------------------------------
-# 4. Deploy the kubernetes files in sequence:
+## 4. Deploy the kubernetes files in sequence:
 
    - 01webandsql.yaml 
    
@@ -117,16 +117,16 @@ az network dns zone show \
   
   
 ----------------------------------------------------------
-# 5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
+## 5. Verifiy the application, both URL's utilize the Let's Encrypt Certificate
 
 
-## View the two URL's :
+### View the two URL's :
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https02.png)
 
 
-## View the two Certificates :
+### View the two Certificates :
 
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https03.png)
