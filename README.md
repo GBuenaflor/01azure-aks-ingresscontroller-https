@@ -163,11 +163,9 @@ az network dns zone show \
 
 ![Image description](https://github.com/GBuenaflor/01azure-aks-ingresscontroller-https/blob/master/Images/GB-AKS-Ingress-Https03.png)
 
-
-</br>
-Link to other Microsoft Azure projects
-https://github.com/GBuenaflor/01azure
-</br>
+ 
+[Link](https://github.com/GBuenaflor/gbuenaflor.github.io) Microsoft Azure Container Ecosystem - "nugget"
+ 
 
 
 Note: My Favorite -> Microsoft :D
