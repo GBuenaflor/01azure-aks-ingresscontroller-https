@@ -165,6 +165,6 @@ az network dns zone show \
 
  
  
-Microsoft Azure Container Ecosystem - "nugget"  > [Click this Link](https://github.com/GBuenaflor/gbuenaflor.github.io) 
+Microsoft Azure Container Ecosystem - "nugget series"  > [Click this Link](https://github.com/GBuenaflor/gbuenaflor.github.io) 
  
 Note: My Favorite -> Microsoft :D
